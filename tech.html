@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLURALS TECH — iGaming Entertainment Reshaped</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════
+   TOKENS
+════════════════════════════════════ */
+:root{
+  --bg:#06060f;--bg2:#09091a;--surface:#0f0f20;--panel:#131328;--raised:#1a1a35;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.11);--border3:rgba(255,255,255,0.18);
+  --white:#ffffff;--off:#e4e4f0;--mid:#9898b8;--dim:#55556a;--muted:#3a3a55;
+  --accent:#6b5eff;--accent2:#8b7fff;--accent-dim:rgba(107,94,255,0.1);--accent-glow:rgba(107,94,255,0.22);
+  --teal:#00d4b1;--teal-dim:rgba(0,212,177,0.1);
+  --gold:#f0a30a;--gold-dim:rgba(240,163,10,0.1);
+  --fd:'Syne',sans-serif;--fb:'Instrument Sans',sans-serif;
+  --fm:'DM Mono',monospace;--fi:'Instrument Serif',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--off);font-family:var(--fb);font-size:16px;line-height:1.65;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.5}
+
+/* ════════════════════════════════════
+   TYPE
+════════════════════════════════════ */
+h1,h2,h3,h4{font-family:var(--fd);font-weight:700;letter-spacing:-0.03em;color:var(--white);line-height:1.02}
+h1{font-size:clamp(48px,6vw,84px)}
+h2{font-size:clamp(34px,4vw,56px)}
+h3{font-size:clamp(20px,2.2vw,30px)}
+h4{font-size:17px;line-height:1.3}
+.label{display:inline-flex;align-items:center;gap:10px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2)}
+.label::before{content:'';width:24px;height:1px;background:var(--accent2)}
+.body-xl{font-size:19px;font-weight:300;color:var(--mid);line-height:1.65}
+.body-lg{font-size:16px;font-weight:300;color:var(--mid);line-height:1.7}
+.body-md{font-size:14px;color:var(--mid);line-height:1.7}
+em.serif{font-family:var(--fi);font-style:italic;color:var(--white)}
+.accent-col{color:var(--accent2)}.teal-col{color:var(--teal)}.gold-col{color:var(--gold)}
+
+/* ════════════════════════════════════
+   LAYOUT
+════════════════════════════════════ */
+.wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.wrap-narrow{max-width:740px;margin:0 auto;padding:0 40px}
+.section{padding:120px 0}.section-sm{padding:72px 0}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--border2) 30%,var(--border2) 70%,transparent 100%)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ════════════════════════════════════
+   BUTTONS
+════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-family:var(--fb);font-size:14px;font-weight:500;text-decoration:none;cursor:pointer;border:none;letter-spacing:.01em;transition:all .2s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--white);box-shadow:0 0 36px var(--accent-glow)}
+.btn-primary:hover{background:#7c6fff;transform:translateY(-2px);box-shadow:0 0 54px rgba(107,94,255,.35)}
+.btn-outline{background:transparent;color:var(--off);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--border3);background:rgba(255,255,255,.04)}
+.btn-investor{background:rgba(240,163,10,.12);color:var(--gold);border:1px solid rgba(240,163,10,.25);font-size:13px;padding:10px 20px}
+.btn-investor:hover{background:rgba(240,163,10,.22);border-color:rgba(240,163,10,.45)}
+.btn-teal{background:var(--teal);color:#000;font-weight:600;box-shadow:0 0 28px var(--teal-dim)}
+.btn-teal:hover{background:#00edc5;transform:translateY(-2px)}
+.btn-ghost-teal{background:transparent;color:var(--teal);border:1px solid rgba(0,212,177,.25)}
+.btn-ghost-teal:hover{background:rgba(0,212,177,.06);border-color:rgba(0,212,177,.4)}
+.btn-sm{padding:9px 18px;font-size:13px}
+
+/* ════════════════════════════════════
+   NAV
+════════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(6,6,15,.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .3s}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.nav-logo-mark{width:34px;height:34px;flex-shrink:0}
+.nav-logo-type{font-family:var(--fd);font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--white);text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--mid);text-decoration:none;font-size:13px;font-weight:400;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:10px}
+
+/* ════════════════════════════════════
+   HERO
+════════════════════════════════════ */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:90px;position:relative;overflow:hidden;text-align:center}
+.hero-glow{position:absolute;width:860px;height:860px;border-radius:50%;background:radial-gradient(circle,rgba(107,94,255,.08) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(107,94,255,.1);border:1px solid rgba(107,94,255,.25);border-radius:100px;padding:6px 18px 6px 10px;font-size:12px;font-weight:500;color:var(--accent2);margin-bottom:32px}
+.hero-kicker-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{margin-bottom:24px;letter-spacing:-.04em}
+.hero-h1 .italic-line{font-family:var(--fi);font-style:italic;font-weight:400;color:var(--mid);letter-spacing:-.02em}
+.hero-sub{max-width:560px;margin:0 auto 40px;font-size:17px;font-weight:300;color:var(--mid);line-height:1.65}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:72px}
+
+.hero-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;max-width:820px;margin:0 auto;border:1px solid var(--border)}
+.hs-cell{background:var(--bg2);padding:26px 22px;text-align:center}
+.hs-num{font-family:var(--fd);font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-.04em;display:block;margin-bottom:5px;color:var(--white);line-height:1}
+.hs-num-prefix{font-size:clamp(12px,1.5vw,16px);color:var(--mid);font-weight:400}
+.hs-label{font-size:12px;color:var(--mid);line-height:1.45}
+.hs-sub{font-size:10px;color:var(--dim);margin-top:5px;font-style:italic}
+
+/* ════════════════════════════════════
+   VENN
+════════════════════════════════════ */
+.hero-venn{max-width:580px;margin:0 auto}
+
+/* ════════════════════════════════════
+   PROBLEM
+════════════════════════════════════ */
+#problem{background:var(--bg2)}
+.problem-thesis{max-width:720px;margin:0 auto 72px;text-align:center}
+.thesis-quote{font-family:var(--fi);font-size:clamp(24px,3.2vw,42px);font-style:italic;color:var(--white);line-height:1.2;letter-spacing:-.02em;margin-bottom:18px}
+.thesis-attr{font-size:12px;color:var(--dim);letter-spacing:.04em}
+.thesis-attr span{color:var(--accent2)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prob-card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;transition:all .3s}
+.prob-card:hover{transform:translateY(-4px);border-color:var(--border2)}
+.prob-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.prob-ops::before{background:linear-gradient(90deg,var(--accent),transparent)}
+.prob-stu::before{background:linear-gradient(90deg,var(--teal),transparent)}
+.prob-pla::before{background:linear-gradient(90deg,var(--gold),transparent)}
+.prob-card:hover::before{opacity:1}
+.prob-who{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;padding:4px 10px;border-radius:4px;display:inline-block}
+.prob-who-ops{color:var(--accent2);background:var(--accent-dim)}
+.prob-who-stu{color:var(--teal);background:var(--teal-dim)}
+.prob-who-pla{color:var(--gold);background:var(--gold-dim)}
+.prob-stat{font-family:var(--fd);font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-.04em;color:var(--white);display:block;margin-bottom:8px;line-height:1}
+.prob-stat .unit{font-size:clamp(14px,1.8vw,20px);color:var(--mid);font-weight:400}
+.prob-card h4{margin-bottom:8px;font-size:15px}
+.prob-card p{font-size:13px;color:var(--mid);line-height:1.65}
+
+/* ════════════════════════════════════
+   ECOSYSTEM
+════════════════════════════════════ */
+.eco-header{text-align:center;max-width:620px;margin:0 auto 64px}
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:22px;overflow:hidden;border:1px solid var(--border)}
+.eco-card{background:var(--bg2);padding:44px 36px;transition:background .3s;position:relative;overflow:hidden}
+.eco-card:hover{background:var(--surface)}
+.eco-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.eco-card:hover::before{opacity:1}
+.ec1::before{background:linear-gradient(90deg,var(--teal),transparent)}
+.ec2::before{background:linear-gradient(90deg,rgba(255,255,255,.4),transparent)}
+.ec3::before{background:linear-gradient(90deg,var(--accent),transparent)}
+.eco-ring-mark{margin-bottom:24px}
+.eco-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;display:block}
+.eco-card h3{font-size:20px;margin-bottom:10px}
+.eco-card p{font-size:13px;color:var(--mid);line-height:1.7}
+.flywheel{margin-top:16px;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:28px 40px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:0;align-items:center}
+.fw-step{text-align:center;padding:0 12px}
+.fw-num{font-size:9px;font-family:var(--fd);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.fw-icon{font-size:24px;margin-bottom:8px}
+.fw-title{font-family:var(--fd);font-size:13px;font-weight:700;margin-bottom:4px}
+.fw-desc{font-size:11px;color:var(--mid);line-height:1.45}
+.fw-arrow{color:var(--border3);font-size:18px;padding:0 4px;flex-shrink:0}
+
+/* ════════════════════════════════════
+   OPERATORS
+════════════════════════════════════ */
+.ops-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.benefit-list{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.benefit-row{display:flex;gap:14px;align-items:flex-start;padding:20px;background:var(--panel);border:1px solid var(--border);border-radius:14px;transition:border-color .3s}
+.benefit-row:hover{border-color:rgba(107,94,255,.25)}
+.benefit-icon{width:36px;height:36px;border-radius:10px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.benefit-title{font-family:var(--fd);font-size:14px;font-weight:600;margin-bottom:4px}
+.benefit-desc{font-size:12px;color:var(--mid);line-height:1.55}
+.pricing-stack{display:flex;flex-direction:column;gap:12px}
+.price-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px 24px;transition:all .3s}
+.price-card.featured{background:linear-gradient(135deg,rgba(107,94,255,.12),rgba(107,94,255,.03));border-color:rgba(107,94,255,.28)}
+.price-card:hover{transform:translateY(-2px);border-color:var(--border2)}
+.price-tag{display:flex;align-items:flex-end;gap:6px;margin-bottom:4px}
+.price-amount{font-family:var(--fd);font-size:28px;font-weight:800;letter-spacing:-.03em;color:var(--white)}
+.price-per{font-size:12px;color:var(--mid);padding-bottom:3px}
+.price-name{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px}
+.price-name.tl{color:var(--teal)}.price-name.gd{color:var(--gold)}
+.price-desc{font-size:12px;color:var(--mid);line-height:1.55}
+.price-includes{margin-top:10px;font-size:11px;color:var(--dim);border-top:1px solid var(--border);padding-top:10px;line-height:1.5}
+
+/* OPERATOR DASHBOARD WIREFRAME */
+.dash-wire{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-top:28px}
+.dash-bar{background:var(--panel);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%}
+.dash-bar-title{font-size:10px;color:var(--dim);margin-left:8px;font-family:var(--fd);font-weight:600;letter-spacing:.04em}
+.dash-content{padding:18px}
+.dash-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center}
+.kpi.green{border-color:rgba(0,212,177,.2);background:rgba(0,212,177,.05)}
+.kpi.purple{border-color:rgba(107,94,255,.2);background:rgba(107,94,255,.05)}
+.kpi-num{font-family:var(--fd);font-size:clamp(15px,2vw,20px);font-weight:700;color:var(--white);display:block;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi.green .kpi-num{color:var(--teal)}.kpi.purple .kpi-num{color:var(--accent2)}
+.kpi-label{font-size:9px;color:var(--dim);line-height:1.3}
+.dash-row-2{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.dash-chart{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
+.dash-chart-title{font-size:9px;color:var(--mid);font-family:var(--fd);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.bars{display:flex;align-items:flex-end;gap:4px;height:70px}
+.bar{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(0deg,var(--accent),rgba(107,94,255,.3));opacity:.75;min-width:0}
+.dash-roi{background:var(--panel);border:1px solid rgba(0,212,177,.15);border-radius:10px;padding:14px}
+.dash-roi-title{font-size:9px;color:var(--teal);font-family:var(--fd);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.roi-row-w{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px}
+.roi-label-w{font-size:10px;color:var(--mid);flex:1;white-space:nowrap}
+.roi-val-w{font-family:var(--fd);font-size:12px;font-weight:700;text-align:right;flex-shrink:0}
+.roi-positive{color:var(--teal)}.roi-negative{color:#f87171}
+.roi-divider{height:1px;background:var(--border);margin:6px 0}
+.roi-total-label{font-size:10px;color:var(--off);font-weight:600}
+.roi-total-val{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--teal)}
+
+/* Ops CTA row */
+.ops-cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+
+/* ════════════════════════════════════
+   STUDIOS
+════════════════════════════════════ */
+.studios-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.roi-box{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:24px;margin-top:28px}
+.roi-box-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:block}
+.roi-item{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.roi-item:last-child{margin-bottom:0}
+.roi-icon{font-size:15px;flex-shrink:0;width:20px;margin-top:1px}
+.roi-text{font-size:12.5px;color:var(--mid);line-height:1.5}
+.roi-text strong{color:var(--off);font-weight:500}
+.studio-tiers{display:flex;flex-direction:column;gap:12px}
+.tier-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;transition:all .3s}
+.tier-card:hover{border-color:rgba(0,212,177,.3);transform:translateY(-2px)}
+.tier-card.hero-tier{background:linear-gradient(135deg,rgba(0,212,177,.09),rgba(0,212,177,.02));border-color:rgba(0,212,177,.22)}
+.tier-name{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:block}
+.tier-title{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:5px}
+.tier-desc{font-size:12px;color:var(--mid);line-height:1.5}
+.tier-price-col{text-align:right;flex-shrink:0}
+.tier-price{font-family:var(--fd);font-size:22px;font-weight:800;letter-spacing:-.03em;color:var(--white);display:block}
+.tier-per{font-size:10px;color:var(--dim)}
+
+/* STUDIO DASHBOARD */
+.studio-dash{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-top:24px}
+.studio-dash-content{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sdc-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
+.sdc-full{grid-column:span 2}
+.sdc-num{font-family:var(--fd);font-size:clamp(16px,2vw,22px);font-weight:700;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sdc-num.teal{color:var(--teal)}.sdc-num.gold{color:var(--gold)}
+.sdc-label{font-size:9px;color:var(--dim);margin-top:2px}
+.sdc-bar-track{background:var(--raised);height:4px;border-radius:2px;overflow:hidden;margin-top:8px}
+.sdc-bar-fill{height:100%;border-radius:2px;background:var(--teal)}
+.sdc-game-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)}
+.sdc-game-row:last-child{border-bottom:none}
+.sdc-game-thumb{width:28px;height:28px;border-radius:6px;background:var(--raised);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px}
+.sdc-game-name{font-size:11px;font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sdc-game-views{font-size:10px;color:var(--teal);flex-shrink:0;min-width:50px;text-align:right}
+.sdc-funnel{grid-column:span 2}
+.funnel-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.funnel-label{font-size:10px;color:var(--mid);width:90px;flex-shrink:0;text-align:right}
+.funnel-track{flex:1;height:6px;background:var(--raised);border-radius:3px;overflow:hidden}
+.funnel-fill{height:100%;border-radius:3px}
+.funnel-val{font-size:10px;color:var(--off);font-family:var(--fm);width:38px;flex-shrink:0}
+
+/* ════════════════════════════════════
+   SCROLLTO.APP SECTION — full phones from wireframe
+════════════════════════════════════ */
+#entertainment{background:linear-gradient(180deg,var(--bg) 0%,#030e0e 100%);position:relative;overflow:hidden}
+.ent-glow{position:absolute;top:-100px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,177,.07) 0%,transparent 70%);pointer-events:none}
+.ent-header{text-align:center;max-width:700px;margin:0 auto 56px}
+
+/* scrollto.app wordmark */
+.scrollto-wm{display:inline-flex;align-items:center;gap:0;margin-bottom:28px}
+.scrollto-wm svg{height:48px}
+
+/* === PHONE FRAMES (from wireframe) === */
+.phones-showcase{display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:nowrap;overflow-x:auto;padding:0 0 16px;margin-bottom:48px}
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;flex-shrink:0}
+.screen-label{font-size:10px;font-family:var(--fm);color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:2px;text-align:center}
+.screen-title-w{font-size:13px;font-weight:700;color:rgba(255,255,255,.65);text-align:center;margin-bottom:2px}
+.phone{width:240px;height:520px;background:#0d0d1a;border-radius:38px;border:1.5px solid rgba(255,255,255,.1);position:relative;overflow:hidden;box-shadow:0 0 0 1px rgba(107,94,255,.15),0 32px 64px rgba(0,0,0,.6),0 0 50px rgba(107,94,255,.06),inset 0 1px 0 rgba(255,255,255,.07);flex-shrink:0}
+.phone::before{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:72px;height:22px;background:#000;border-radius:16px;z-index:100;box-shadow:0 0 0 1px rgba(255,255,255,.05)}
+.phone-screen{position:absolute;inset:0;border-radius:36px;overflow:hidden}
+
+/* swipe arrows */
+.arrow-wrap-w{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding-top:50px;flex-shrink:0}
+.arrow-label-w{font-size:9px;font-family:var(--fm);color:rgba(255,255,255,.2);text-transform:uppercase;letter-spacing:1px;text-align:center;max-width:60px}
+.arrow-circle{width:28px;height:28px;border-radius:50%;border:1.5px dashed rgba(107,94,255,.35);display:flex;align-items:center;justify-content:center;font-size:12px;animation:pulseGlow 2s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(107,94,255,.2)}50%{box-shadow:0 0 0 5px rgba(107,94,255,0)}}
+
+/* ── SCREEN 1: FEED ── */
+.screen-feed{background:#060608;width:100%;height:100%;position:relative}
+.feed-card{position:absolute;inset:0;overflow:hidden}
+.feed-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a0533 0%,#0d0118 40%,#000 100%)}
+.game-visual{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.slot-reels{display:flex;gap:5px;padding:10px;background:rgba(0,0,0,.5);border-radius:12px;border:1px solid rgba(255,215,0,.3);backdrop-filter:blur(4px);box-shadow:0 0 24px rgba(255,215,0,.12),inset 0 1px 0 rgba(255,255,255,.08)}
+.reel{width:42px;height:58px;background:linear-gradient(180deg,#1a1a2e 0%,#16213e 100%);border-radius:7px;border:1px solid rgba(255,215,0,.18);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.reel-symbol{font-size:20px;line-height:1;animation:reelSpin 3s ease-in-out infinite}
+.reel:nth-child(2) .reel-symbol{animation-delay:.3s}.reel:nth-child(3) .reel-symbol{animation-delay:.6s}
+@keyframes reelSpin{0%,70%,100%{transform:translateY(0);opacity:1}30%{transform:translateY(-7px);opacity:.3}50%{transform:translateY(5px);opacity:.5}}
+.win-line-f{position:absolute;left:10px;right:10px;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.7),transparent);top:50%;transform:translateY(-50%);animation:winPulse 2s ease-in-out infinite}
+@keyframes winPulse{0%,100%{opacity:.3}50%{opacity:1;box-shadow:0 0 10px rgba(255,215,0,.5)}}
+.feed-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,8,.97) 0%,rgba(6,6,8,.5) 28%,transparent 58%,rgba(0,0,0,.38) 100%);pointer-events:none}
+.feed-particle{position:absolute;width:2.5px;height:2.5px;border-radius:50%;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(100%) translateX(0) scale(1);opacity:0}20%{opacity:.7}80%{opacity:.3}100%{transform:translateY(-180px) translateX(15px) scale(.3);opacity:0}}
+.feed-topbar{position:absolute;top:40px;left:0;right:0;padding:0 14px;display:flex;align-items:center;justify-content:space-between;z-index:10}
+.feed-logo-txt{font-family:var(--fd);font-size:15px;font-weight:800;background:linear-gradient(135deg,#fff,rgba(107,94,255,.9));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.feed-tabs-w{display:flex;gap:10px}
+.feed-tab-w{font-size:10px;font-weight:600;color:rgba(255,255,255,.4);padding:3px 0}
+.feed-tab-w.active{color:#fff;border-bottom:1.5px solid rgba(107,94,255,.8)}
+.feed-actions-f{position:absolute;right:10px;bottom:130px;display:flex;flex-direction:column;gap:14px;align-items:center;z-index:10}
+.action-btn-f{display:flex;flex-direction:column;align-items:center;gap:2px}
+.action-icon-f{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-size:16px}
+.action-count-f{font-size:9px;color:rgba(255,255,255,.55);font-family:var(--fm)}
+.scroll-ind{position:absolute;right:5px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:3px;z-index:10}
+.scroll-d{width:2.5px;height:2.5px;border-radius:50%;background:rgba(255,255,255,.18)}
+.scroll-d.active{height:12px;border-radius:2px;background:rgba(107,94,255,.75)}
+.feed-info-f{position:absolute;bottom:82px;left:12px;right:56px;z-index:10}
+.game-studio-f{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.studio-av-f{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#ec4899);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;border:1px solid rgba(255,255,255,.18)}
+.studio-name-f{font-size:10px;font-weight:700;color:#fff}
+.studio-follow-f{font-size:9px;color:rgba(107,94,255,.9);font-weight:700;margin-left:4px;border:1px solid rgba(107,94,255,.45);padding:1px 5px;border-radius:7px}
+.game-name-f{font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.2px;line-height:1.2}
+.game-tags-f{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:7px}
+.game-tag-f{font-size:9px;padding:2px 6px;border-radius:9px;font-family:var(--fm);font-weight:500}
+.tag-rtp-f{background:rgba(16,185,129,.18);color:#6ee7b7;border:1px solid rgba(16,185,129,.28)}
+.tag-vol-f{background:rgba(245,158,11,.18);color:#fcd34d;border:1px solid rgba(245,158,11,.28)}
+.tag-hot-f{background:rgba(239,68,68,.18);color:#fca5a5;border:1px solid rgba(239,68,68,.28)}
+.swipe-hint-f{display:flex;gap:12px}
+.hint-f{display:flex;align-items:center;gap:3px;font-size:9px;color:rgba(255,255,255,.35);font-family:var(--fm)}
+.feed-nav-w{position:absolute;bottom:0;left:0;right:0;height:68px;background:rgba(6,6,8,.92);backdrop-filter:blur(18px);border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-around;padding:0 6px 10px;z-index:20}
+.nav-item-w{display:flex;flex-direction:column;align-items:center;gap:3px;opacity:.38;padding:6px 10px;transition:opacity .2s}
+.nav-item-w.active{opacity:1}
+.nav-icon-w{font-size:18px;line-height:1}
+.nav-label-w{font-size:8px;font-family:var(--fm);text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.65)}
+.nav-item-w.active .nav-label-w{color:#a78bfa}
+.nav-center-w{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#ec4899);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 3px 16px rgba(124,58,237,.45);margin-top:-6px}
+
+/* ── SCREEN 2: STREAMER ── */
+.screen-streamer-w{background:#050508;width:100%;height:100%;position:relative}
+.stream-video-w{position:absolute;top:0;left:0;right:0;height:58%;background:linear-gradient(160deg,#0f0520 0%,#1a0533 50%,#0a0015 100%);overflow:hidden}
+.stream-overlay-w{position:absolute;inset:0;background:radial-gradient(circle at 30% 60%,rgba(124,58,237,.13) 0%,transparent 50%),radial-gradient(circle at 70% 30%,rgba(236,72,153,.09) 0%,transparent 50%)}
+.streamer-game-w{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.mini-slot-w{background:rgba(0,0,0,.6);border:1px solid rgba(255,215,0,.22);border-radius:10px;padding:8px;display:flex;gap:4px}
+.mini-reel-w{width:32px;height:44px;background:linear-gradient(180deg,#1a1030 0%,#0d0820 100%);border-radius:5px;border:1px solid rgba(255,215,0,.12);display:flex;align-items:center;justify-content:center;font-size:15px}
+.streamer-pip-w{position:absolute;bottom:8px;right:8px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#1d4ed8);border:2px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 3px 14px rgba(0,0,0,.5)}
+.live-badge-w{position:absolute;top:42px;left:12px;background:#ef4444;color:#fff;font-size:8px;font-weight:800;font-family:var(--fm);padding:2px 7px;border-radius:3px;letter-spacing:1px;display:flex;align-items:center;gap:4px}
+.live-dot-w{width:4px;height:4px;border-radius:50%;background:#fff;animation:blink 1s ease-in-out infinite}
+.viewer-count-w{position:absolute;top:42px;right:12px;font-size:9px;font-family:var(--fm);color:rgba(255,255,255,.65)}
+.stream-win-w{position:absolute;bottom:0;left:0;right:0;padding:5px 10px;background:linear-gradient(90deg,rgba(255,215,0,.18),rgba(255,215,0,.04));border-top:1px solid rgba(255,215,0,.25);font-size:10px;font-weight:700;color:#fcd34d}
+.stream-chat-w{position:absolute;top:58%;left:0;right:0;bottom:68px;display:flex;flex-direction:column}
+.stream-info-bar-w{padding:8px 12px 5px;border-bottom:1px solid rgba(255,255,255,.05)}
+.streamer-row-w{display:flex;align-items:center;gap:7px;margin-bottom:3px}
+.streamer-av-w{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:10px;border:1px solid rgba(255,255,255,.18)}
+.streamer-handle-w{font-size:11px;font-weight:700;color:#fff;flex:1}
+.streamer-sub-w{font-size:9px;color:rgba(255,255,255,.35);font-family:var(--fm)}
+.follow-btn-w{font-size:9px;font-weight:700;background:rgba(124,58,237,.18);color:#a78bfa;border:1px solid rgba(124,58,237,.38);padding:3px 8px;border-radius:16px}
+.chat-msgs-w{flex:1;padding:6px 12px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px}
+.chat-msg-w{font-size:10px;line-height:1.35}
+.chat-user-w{font-weight:700;font-family:var(--fm)}
+.chat-text-w{color:rgba(255,255,255,.65)}
+.chat-input-w{padding:6px 12px;display:flex;gap:7px;align-items:center;border-top:1px solid rgba(255,255,255,.05)}
+.chat-in-w{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:6px 10px;font-size:10px;color:rgba(255,255,255,.35);font-family:var(--fm)}
+.chat-send-w{width:26px;height:26px;border-radius:50%;background:rgba(124,58,237,.28);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+
+/* ── SCREEN 3: DEMO ── */
+.screen-demo-w{background:#06060a;width:100%;height:100%;position:relative}
+.demo-header-w{position:absolute;top:38px;left:0;right:0;padding:10px 14px;display:flex;align-items:center;gap:8px;z-index:10;background:linear-gradient(to bottom,rgba(6,6,10,.9),transparent)}
+.back-btn-w{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;font-size:12px}
+.demo-game-title-w{font-size:12px;font-weight:700;flex:1}
+.demo-badge-w{font-size:8px;font-family:var(--fm);font-weight:700;background:rgba(6,182,212,.18);color:#67e8f9;border:1px solid rgba(6,182,212,.32);padding:2px 7px;border-radius:9px;letter-spacing:1px}
+.demo-game-area-w{position:absolute;top:94px;left:12px;right:12px;height:248px;background:linear-gradient(160deg,#1a0533 0%,#0d0118 60%,#000510 100%);border-radius:14px;border:1px solid rgba(124,58,237,.22);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(0,0,0,.38)}
+.demo-slot-machine-w{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;padding:12px}
+.demo-slot-title-w{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(135deg,#fcd34d,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.demo-reels-w{display:flex;gap:6px;background:rgba(0,0,0,.5);padding:10px;border-radius:10px;border:1px solid rgba(255,215,0,.18)}
+.demo-reel-w{width:46px;height:62px;background:linear-gradient(180deg,#0d0820 0%,#060412 100%);border-radius:6px;border:1px solid rgba(255,215,0,.12);display:flex;align-items:center;justify-content:center;font-size:22px;position:relative;overflow:hidden}
+.demo-reel-w::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38) 0%,transparent 28%,transparent 72%,rgba(0,0,0,.38) 100%);pointer-events:none}
+.demo-win-line-w{width:100%;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.55),transparent);animation:winPulse 2s ease-in-out infinite}
+.demo-bal-row{display:flex;gap:12px}
+.demo-stat-w{text-align:center}
+.demo-stat-label-w{font-size:8px;font-family:var(--fm);color:rgba(255,255,255,.32);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.demo-stat-val-w{font-size:12px;font-weight:800;font-family:var(--fm)}
+.demo-spin-btn-w{width:100%;padding:9px;background:linear-gradient(135deg,#7c3aed,#6d28d9);border-radius:9px;font-size:11px;font-weight:800;text-align:center;letter-spacing:1px;box-shadow:0 3px 14px rgba(124,58,237,.38)}
+.demo-controls-w{position:absolute;top:358px;left:12px;right:12px}
+.bet-sel-w{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:9px;padding:8px 12px}
+.bet-label-w{font-size:10px;color:rgba(255,255,255,.35);font-family:var(--fm)}
+.bet-ctrls-w{display:flex;align-items:center;gap:10px}
+.bet-btn-w{width:20px;height:20px;border-radius:50%;background:rgba(124,58,237,.18);border:1px solid rgba(124,58,237,.28);display:flex;align-items:center;justify-content:center;font-size:12px;color:#a78bfa}
+.bet-val-w{font-size:12px;font-weight:800;font-family:var(--fm);color:#fcd34d;min-width:36px;text-align:center}
+.real-money-cta-w{position:absolute;bottom:72px;left:12px;right:12px}
+.cta-label-w{font-size:9px;text-align:center;color:rgba(255,255,255,.28);font-family:var(--fm);margin-bottom:7px;letter-spacing:1px;text-transform:uppercase}
+.cta-btn-w{width:100%;padding:11px;background:linear-gradient(135deg,#059669,#10b981);border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 3px 18px rgba(16,185,129,.3)}
+.cta-text-w{font-size:11px;font-weight:800;color:#fff;letter-spacing:.3px}
+.cta-bonus-w{font-size:9px;background:rgba(255,255,255,.18);padding:2px 7px;border-radius:7px;font-family:var(--fm);font-weight:700}
+.op-logos-w{display:flex;justify-content:center;gap:6px;margin-top:6px}
+.op-logo-w{font-size:8px;font-family:var(--fm);color:rgba(255,255,255,.22);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:2px 7px;border-radius:5px}
+
+/* ── SCREEN 4: PROFILE ── */
+.screen-profile-w{background:#07070f;width:100%;height:100%;position:relative}
+.profile-header-area-w{position:absolute;top:0;left:0;right:0;height:168px;background:linear-gradient(160deg,#1a0533 0%,#0d0118 100%);overflow:hidden}
+.profile-header-pattern-w{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(124,58,237,.04) 0px,rgba(124,58,237,.04) 1px,transparent 1px,transparent 18px)}
+.profile-back-w{position:absolute;top:44px;left:12px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:12px;z-index:5}
+.profile-avatar-w{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#ec4899);display:flex;align-items:center;justify-content:center;font-size:24px;border:2.5px solid #07070f;box-shadow:0 3px 18px rgba(124,58,237,.38);z-index:5}
+.profile-content-w{position:absolute;top:198px;left:0;right:0;bottom:68px;overflow:hidden}
+.profile-name-area-w{text-align:center;padding:0 14px 12px;border-bottom:1px solid rgba(255,255,255,.05)}
+.profile-name-w{font-size:15px;font-weight:800;color:#fff;margin-bottom:2px}
+.profile-handle-w{font-size:10px;font-family:var(--fm);color:rgba(124,58,237,.7);margin-bottom:8px}
+.profile-stats-w{display:flex;justify-content:center;gap:20px}
+.p-stat-w{text-align:center}
+.p-stat-num-w{font-size:14px;font-weight:800;font-family:var(--fm);color:#fff}
+.p-stat-label-w{font-size:8px;color:rgba(255,255,255,.32);font-family:var(--fm);text-transform:uppercase;letter-spacing:.5px}
+.profile-section-w{padding:10px 14px 6px}
+.p-section-title-w{font-size:9px;font-family:var(--fm);color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:7px}
+.favorites-grid-w{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:10px}
+.fav-game-w{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:9px;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.fav-emoji-w{font-size:18px}.fav-name-w{font-size:7px;color:rgba(255,255,255,.38);font-family:var(--fm);text-align:center}
+
+/* Daily streak */
+.streak-row{display:flex;gap:4px;margin-bottom:4px}
+.streak-day-w{width:18px;height:18px;border-radius:4px;flex-shrink:0}
+.streak-on-w{background:var(--teal);opacity:.88}
+.streak-dim-w{background:var(--raised);border:1px solid var(--border)}
+.streak-label-w{font-size:8px;color:var(--teal);font-family:var(--fm)}
+
+.recent-act-w{display:flex;flex-direction:column;gap:6px}
+.act-item-w{display:flex;align-items:center;gap:8px;padding:7px 8px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.04)}
+.act-icon-w{font-size:15px;width:26px;text-align:center}
+.act-info-w{flex:1}
+.act-name-w{font-size:10px;font-weight:600;color:rgba(255,255,255,.75)}
+.act-time-w{font-size:8px;color:rgba(255,255,255,.28);font-family:var(--fm)}
+.act-badge-w{font-size:8px;font-family:var(--fm);font-weight:700;padding:2px 5px;border-radius:5px}
+
+/* Swipe legend */
+.swipe-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:0;margin-bottom:48px}
+.swipe-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:16px 14px;text-align:center}
+.swipe-emoji{font-size:22px;margin-bottom:8px}
+.swipe-action-title{font-family:var(--fd);font-size:12px;font-weight:700;margin-bottom:4px}
+.swipe-desc-txt{font-size:11px;color:var(--mid);font-family:var(--fm);line-height:1.4}
+
+/* Ent features + app buttons */
+.ent-features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+.ent-feat{background:rgba(0,212,177,.05);border:1px solid rgba(0,212,177,.1);border-radius:14px;padding:24px 20px;transition:all .3s}
+.ent-feat:hover{background:rgba(0,212,177,.09);border-color:rgba(0,212,177,.2)}
+.ent-feat-icon{font-size:22px;margin-bottom:12px}
+.ent-feat-title{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:6px}
+.ent-feat-desc{font-size:12.5px;color:var(--mid);line-height:1.6}
+.app-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ════════════════════════════════════
+   TECHNOLOGY
+════════════════════════════════════ */
+.tech-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-top:56px}
+.tech-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.tech-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tech-card-main{grid-row:span 2}
+.tech-n{font-size:9px;color:var(--dim);font-family:var(--fd);font-weight:600;letter-spacing:.1em;margin-bottom:18px}
+.tech-card h4{margin-bottom:8px}
+.tech-card p{font-size:13px;color:var(--mid);line-height:1.65}
+.tech-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.tech-pill{font-size:10px;padding:3px 9px;border-radius:100px;font-family:var(--fd);font-weight:600;letter-spacing:.04em}
+.tp-a{background:var(--accent-dim);color:var(--accent2)}.tp-t{background:var(--teal-dim);color:var(--teal)}.tp-g{background:var(--gold-dim);color:var(--gold)}
+
+/* ════════════════════════════════════
+   TRACTION
+════════════════════════════════════ */
+.traction-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.traction-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tstat{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all .3s}
+.tstat.feat{background:linear-gradient(135deg,rgba(107,94,255,.14),rgba(107,94,255,.03));border-color:rgba(107,94,255,.28)}
+.tstat:hover{transform:translateY(-3px);border-color:var(--border2)}
+.tstat-num{font-family:var(--fd);font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.04em;color:var(--white);display:block;margin-bottom:4px}
+.tstat.feat .tstat-num{color:var(--accent2)}
+.tstat-label{font-size:11px;color:var(--mid);line-height:1.4}
+.market-points{display:flex;flex-direction:column;gap:0}
+.mp-item{padding:20px 0;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
+.mp-item:last-child{border-bottom:none}
+.mp-icon{font-size:17px;flex-shrink:0;width:22px;margin-top:2px}
+.mp-body strong{display:block;font-size:14px;font-family:var(--fd);font-weight:600;margin-bottom:3px}
+.mp-body span{font-size:12.5px;color:var(--mid);line-height:1.5}
+
+/* ════════════════════════════════════
+   FINAL CTA
+════════════════════════════════════ */
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(107,94,255,.09) 0%,transparent 70%);pointer-events:none}
+.cta-header{text-align:center;margin-bottom:64px;position:relative;z-index:1}
+.cta-header h2{margin-bottom:14px}
+.cta-header p{font-size:17px;color:var(--mid);max-width:500px;margin:0 auto}
+.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative;z-index:1}
+.cta-card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;transition:all .3s}
+.cta-card:hover{border-color:var(--border2);transform:translateY(-4px)}
+.cta-card.investor-card{background:linear-gradient(135deg,rgba(240,163,10,.09),rgba(240,163,10,.02));border-color:rgba(240,163,10,.18)}
+.cta-card.investor-card:hover{border-color:rgba(240,163,10,.38)}
+.cta-card-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;display:block}
+.cta-card h3{font-size:20px;margin-bottom:10px}
+.cta-card p{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:20px;flex:1}
+.cta-card-points{margin-bottom:20px;display:flex;flex-direction:column;gap:6px}
+.cta-card-point{font-size:12px;color:var(--mid);display:flex;gap:7px;align-items:flex-start}
+.cta-card-point::before{content:'↗';color:var(--dim);flex-shrink:0;font-size:10px;margin-top:2px}
+.tam-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tam-item{flex:1;background:var(--raised);border-radius:9px;padding:10px 12px;min-width:70px}
+.tam-label{font-size:8px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.tam-val{font-family:var(--fd);font-size:16px;font-weight:800;color:var(--white)}
+.tam-desc{font-size:9px;color:var(--dim);margin-top:2px}
+.investor-contact{margin-top:12px;text-align:center;font-size:12px;color:var(--dim)}
+.investor-contact a{color:var(--gold);text-decoration:none}
+.investor-contact a:hover{text-decoration:underline}
+
+/* Closing statement */
+.closing-statement{text-align:center;max-width:680px;margin:72px auto 0;padding:48px;background:linear-gradient(135deg,rgba(107,94,255,.08),rgba(107,94,255,.02));border:1px solid rgba(107,94,255,.15);border-radius:20px}
+.closing-statement h3{font-size:clamp(20px,2.5vw,28px);margin-bottom:14px}
+.closing-statement p{font-size:15px;color:var(--mid);line-height:1.7}
+
+/* ════════════════════════════════════
+   FOOTER
+════════════════════════════════════ */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-nav{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.footer-nav a{font-size:12.5px;color:var(--dim);text-decoration:none;transition:color .2s}
+.footer-nav a:hover{color:var(--off)}
+.footer-socials{display:flex;gap:12px;align-items:center}
+.social-link{width:36px;height:36px;border-radius:9px;background:var(--panel);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--dim);transition:all .2s;text-decoration:none}
+.social-link:hover{background:var(--raised);border-color:var(--border2);color:var(--off)}
+.footer-copy{font-size:12px;color:var(--muted)}
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media(max-width:960px){
+  nav{padding:14px 24px}.wrap,.wrap-narrow{padding:0 24px}
+  .nav-links,.nav-right .btn-investor{display:none}
+  .section{padding:72px 0}
+  .hero-stats-grid,.problem-grid,.eco-grid,.ops-layout,.studios-layout,.traction-layout,.cta-grid,.ent-features,.tech-grid{grid-template-columns:1fr}
+  .dash-kpi-row{grid-template-columns:repeat(2,1fr)}.dash-row-2{grid-template-columns:1fr}
+  .studio-dash-content{grid-template-columns:1fr}.sdc-full{grid-column:span 1}
+  .flywheel{grid-template-columns:1fr;gap:12px}.fw-arrow{transform:rotate(90deg)}
+  .phones-showcase{overflow-x:auto;padding-bottom:20px;flex-wrap:nowrap;justify-content:flex-start}
+  .swipe-legend{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:44px}.hs-num{font-size:24px}
+  .footer-inner{flex-direction:column;text-align:center}.footer-nav{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 34 34" fill="none">
+      <circle cx="17" cy="12.5" r="9.5" stroke="rgba(255,255,255,0.72)" stroke-width="1.2" fill="none"/>
+      <circle cx="11.5" cy="22.5" r="9.5" stroke="rgba(255,255,255,0.72)" stroke-width="1.2" fill="none"/>
+      <circle cx="22.5" cy="22.5" r="9.5" stroke="rgba(255,255,255,0.72)" stroke-width="1.2" fill="none"/>
+      <circle cx="17" cy="19.4" r="2.8" fill="rgba(255,255,255,0.2)"/>
+      <circle cx="17" cy="19.4" r="1.2" fill="rgba(255,255,255,0.7)"/>
+    </svg>
+    <span class="nav-logo-type">PLURALS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">Market Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#operators">For Operators</a></li>
+    <li><a href="#studios">For Studios</a></li>
+    <li><a href="#entertainment">scrollto.app</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#investor-cta" class="btn btn-investor">Get Pitch Deck</a>
+    <a href="#cta" class="btn btn-primary btn-sm">Partner with us</a>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div style="position:relative;z-index:1">
+
+      <div class="hero-kicker">
+        <span class="hero-kicker-dot"></span>
+        iGaming entertainment is being reshaped
+      </div>
+
+      <h1 class="hero-h1">
+        The feed iGaming<br>
+        <span class="italic-line">has been missing.</span>
+      </h1>
+
+      <p class="hero-sub">
+        PLURALS TECH connects operators, game studios, and the next generation of players — through short-form video, live streaming, and AI-powered discovery.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#solution" class="btn btn-primary">
+          See how it works
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#cta" class="btn btn-outline">Become a partner</a>
+      </div>
+
+      <!-- VENN -->
+      <div class="hero-venn reveal" style="margin-bottom:64px">
+        <svg viewBox="0 0 620 460" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:580px;display:block;margin:0 auto">
+          <defs>
+            <radialGradient id="rg1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#6b5eff" stop-opacity="0.16"/><stop offset="100%" stop-color="#6b5eff" stop-opacity="0"/></radialGradient>
+            <radialGradient id="rg2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00d4b1" stop-opacity="0.14"/><stop offset="100%" stop-color="#00d4b1" stop-opacity="0"/></radialGradient>
+            <radialGradient id="rg3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f0a30a" stop-opacity="0.14"/><stop offset="100%" stop-color="#f0a30a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <circle cx="310" cy="162" r="152" fill="url(#rg1)"/>
+          <circle cx="202" cy="322" r="152" fill="url(#rg2)"/>
+          <circle cx="418" cy="322" r="152" fill="url(#rg3)"/>
+          <circle cx="310" cy="162" r="152" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="5 5"/>
+          <circle cx="202" cy="322" r="152" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="5 5"/>
+          <circle cx="418" cy="322" r="152" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="5 5"/>
+          <text x="310" y="76" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="0.06em">OPERATORS</text>
+          <text x="310" y="94" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.36)">Lower CAC. Pre-warmed players.</text>
+          <text x="102" y="436" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="0.06em">GAME STUDIOS</text>
+          <text x="102" y="452" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.36)">Direct-to-player channel.</text>
+          <text x="518" y="436" text-anchor="middle" font-family="Syne,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.88)" letter-spacing="0.06em">PLAYERS</text>
+          <text x="518" y="452" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.36)">Games they'll love.</text>
+          <circle cx="310" cy="274" r="40" fill="rgba(255,255,255,0.03)"/>
+          <circle cx="310" cy="274" r="26" fill="rgba(255,255,255,0.05)"/>
+          <circle cx="310" cy="274" r="13" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="310" cy="274" r="4.5" fill="rgba(255,255,255,0.55)"/>
+          <text x="310" y="305" text-anchor="middle" font-family="Syne,sans-serif" font-size="8" font-weight="800" fill="rgba(255,255,255,0.5)" letter-spacing="0.12em">PLURALS</text>
+        </svg>
+      </div>
+
+      <!-- STATS: audience-specific losses -->
+      <div class="hero-stats-grid reveal">
+        <div class="hs-cell">
+          <span class="hs-num"><span class="hs-num-prefix">up to </span>$1,400</span>
+          <div class="hs-label">per depositing player — operator CAC in mature markets</div>
+          <div class="hs-sub">Doubled since 2022 · Blask iGaming 2025</div>
+        </div>
+        <div class="hs-cell">
+          <span class="hs-num">~98%</span>
+          <div class="hs-label">of game releases go unnoticed — no studio-to-player channel exists</div>
+          <div class="hs-sub">Game provider CEO, March 2026</div>
+        </div>
+        <div class="hs-cell">
+          <span class="hs-num">76%</span>
+          <div class="hs-label">of under-30 iGaming sessions are mobile-only — lobbies haven't changed since 2005</div>
+          <div class="hs-sub">Digital Gambling Behavior Report 2025</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROBLEM ══ -->
+<section id="problem" class="section" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="label reveal">Market Problem</div>
+    <div class="problem-thesis reveal" style="margin-top:28px">
+      <div class="thesis-quote">"Players live in feeds.<br>But casino games are still trapped in lobbies."</div>
+      <div class="thesis-attr">— The PLURALS TECH thesis · <span>The discovery layer iGaming has been missing</span></div>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="prob-card prob-ops">
+        <div class="prob-who prob-who-ops">Operators</div>
+        <span class="prob-stat">$280–<span class="unit">$1,400</span></span>
+        <h4>Cost per new depositor</h4>
+        <p>CAC has doubled since 2022 in mature markets. Google, Meta, and affiliate channels are saturated. Gen Z — gambling's fastest-growing cohort — doesn't respond to any of them.</p>
+      </div>
+      <div class="prob-card prob-stu">
+        <div class="prob-who prob-who-stu">Game Studios</div>
+        <span class="prob-stat">0<span class="unit"> direct channels</span></span>
+        <h4>No player voice. No brand. No data.</h4>
+        <p>Studios release games into hundreds of lobbies and disappear into a grid of 4,000 thumbnails. No direct-to-player channel, no engagement data, no way to test concepts before full production.</p>
+      </div>
+      <div class="prob-card prob-pla">
+        <div class="prob-who prob-who-pla">Players</div>
+        <span class="prob-stat">4,000<span class="unit">+ games</span></span>
+        <h4>Zero emotional context. Zero discovery.</h4>
+        <p>Casino lobbies haven't changed in 20 years. No algorithm, no social proof, no way to know if a game is worth your money before you deposit. The scroll generation finds everything through feeds — except iGaming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SOLUTION / ECOSYSTEM ══ -->
+<section id="solution" class="section">
+  <div class="wrap">
+    <div class="label reveal">The Solution</div>
+    <div class="eco-header reveal" style="margin-top:28px">
+      <h2>Three products.<br><em class="serif">One infrastructure.</em></h2>
+      <p class="body-lg" style="margin-top:14px">PLURALS TECH is a synergistic platform — each product feeds the next, creating a flywheel none could achieve alone.</p>
+    </div>
+    <div class="eco-grid reveal">
+      <div class="eco-card ec1">
+        <div class="eco-ring-mark">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+            <rect x="2" y="14" width="28" height="12" rx="6" stroke="#00d4b1" stroke-width="1.2" fill="none"/>
+            <line x1="8" y1="20" x2="24" y2="20" stroke="#00d4b1" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M19 14.5l8 5.5-8 5.5" stroke="#00d4b1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="eco-tag teal-col">Consumer App · B2C</span>
+        <h3>scrollto.app</h3>
+        <p style="margin-bottom:16px">The iGaming entertainment app. A TikTok-style feed where every scroll surfaces a new game, every swipe opens a live stream, and every session creates a natural path to real-money play.</p>
+        <div style="font-size:11px;color:var(--dim);font-style:italic">Where every scroll is a new story.</div>
+      </div>
+      <div class="eco-card ec2">
+        <div class="eco-ring-mark">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="13" stroke="rgba(255,255,255,0.28)" stroke-width="1.2" fill="none" stroke-dasharray="3 3"/>
+            <circle cx="20" cy="20" r="7.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" fill="none"/>
+            <circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.7)"/>
+          </svg>
+        </div>
+        <span class="eco-tag" style="color:var(--off)">Content Studio · B2B2C</span>
+        <h3>Animation Studio</h3>
+        <p>Produces exclusive game trailers and promotional content that populates scrollto.app. The content moat no competitor can replicate — proprietary iGaming content built in-house, distributed through our own platform.</p>
+      </div>
+      <div class="eco-card ec3">
+        <div class="eco-ring-mark">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="13" stroke="#6b5eff" stroke-width="1.2" fill="rgba(107,94,255,0.08)"/>
+            <circle cx="20" cy="20" r="6" stroke="#6b5eff" stroke-width="1" fill="rgba(107,94,255,0.15)"/>
+            <circle cx="20" cy="20" r="2.5" fill="#8b7fff"/>
+            <line x1="20" y1="5" x2="20" y2="2" stroke="#6b5eff" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="20" y1="38" x2="20" y2="35" stroke="#6b5eff" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="5" y1="20" x2="2" y2="20" stroke="#6b5eff" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="38" y1="20" x2="35" y2="20" stroke="#6b5eff" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="eco-tag accent-col">Streaming Platform · B2B</span>
+        <h3>PLURALS Live</h3>
+        <p>The live streaming infrastructure. Creates the social proof layer that scrollto.app surfaces in its feed. Monetised B2B — operators and studios pay for placement, reach, and the first-party engagement data it generates.</p>
+      </div>
+    </div>
+    <div class="flywheel reveal">
+      <div class="fw-step"><div class="fw-num">01</div><div class="fw-icon">🎬</div><div class="fw-title">Content Created</div><div class="fw-desc">Exclusive trailers by the Animation Studio</div></div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-step"><div class="fw-num">02</div><div class="fw-icon">📱</div><div class="fw-title">scrollto.app Distributes</div><div class="fw-desc">Algorithmic feed reaches the right players</div></div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-step"><div class="fw-num">03</div><div class="fw-icon">🎰</div><div class="fw-title">Players Try Demos</div><div class="fw-desc">Zero-friction trial before any deposit</div></div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-step"><div class="fw-num">04</div><div class="fw-icon">🏦</div><div class="fw-title">Operators Acquire</div><div class="fw-desc">Pre-warmed, high-intent players arrive</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ OPERATORS ══ -->
+<section id="operators" class="section" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="label reveal">For Operators</div>
+    <div style="height:28px"></div>
+    <div class="ops-layout">
+      <div class="reveal">
+        <h2>New players.<br>Half the cost.</h2>
+        <p class="body-lg" style="margin-top:14px;margin-bottom:8px">Players arrive pre-warmed — they've watched the game, trialled the demo, and decided to play before they ever reach your casino.</p>
+        <div class="benefit-list">
+          <div class="benefit-row">
+            <div class="benefit-icon">🎯</div>
+            <div><div class="benefit-title">Pre-qualified traffic only</div><div class="benefit-desc">Players arrive having already watched and demo'd the game. Higher conversion, lower effective CPA, stronger Day-7 retention.</div></div>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon">📊</div>
+            <div><div class="benefit-title">Performance + SaaS — choose your model</div><div class="benefit-desc">Pay per depositing player (CPA/RevShare), or subscribe to Operator Growth for featured placement, analytics, and CRM integration.</div></div>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-icon">⚡</div>
+            <div><div class="benefit-title">Reach Gen Z where they actually are</div><div class="benefit-desc">47% growth in Gen Z gambling since 2022 — 76% mobile-only. They don't respond to TV, Google, or banners. They respond to feeds.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="pricing-stack">
+          <div class="price-card featured">
+            <div class="price-name">Operator Growth SaaS</div>
+            <div class="price-tag"><span class="price-amount">€4,999</span><span class="price-per">/month</span></div>
+            <div class="price-desc">Featured placement, campaign tools, analytics dashboard, CRM integration. Predictable MRR.</div>
+            <div class="price-includes">Trailers · Demo boost · Featured placement · Player analytics · CRM integration</div>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Affiliate CPA</div>
+            <div class="price-tag"><span class="price-amount">€99</span><span class="price-per">per NDC</span></div>
+            <div class="price-desc">Pay only for real first-time depositors. Start immediately with no upfront commitment.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-name tl">Affiliate RevShare</div>
+            <div class="price-tag"><span class="price-amount">29%</span><span class="price-per">of player NGR</span></div>
+            <div class="price-desc">Revenue share on net gaming revenue. Long-tail value aligned with your performance.</div>
+          </div>
+        </div>
+
+        <!-- Operator Dashboard -->
+        <div class="dash-wire reveal">
+          <div class="dash-bar">
+            <span class="dot" style="background:#ff5f5f"></span>
+            <span class="dot" style="background:#ffbd2e"></span>
+            <span class="dot" style="background:#27c93f"></span>
+            <span class="dash-bar-title">Operator Dashboard · PLURALS TECH</span>
+          </div>
+          <div class="dash-content">
+            <div class="dash-kpi-row">
+              <div class="kpi green"><span class="kpi-num">1,284</span><div class="kpi-label">Players sent this month</div></div>
+              <div class="kpi green"><span class="kpi-num">€118K</span><div class="kpi-label">Revenue attributed</div></div>
+              <div class="kpi purple"><span class="kpi-num">€92</span><div class="kpi-label">Effective CPA</div></div>
+              <div class="kpi"><span class="kpi-num" style="color:var(--gold)">68%</span><div class="kpi-label">D7 retention rate</div></div>
+            </div>
+            <div class="dash-row-2">
+              <div class="dash-chart">
+                <div class="dash-chart-title">Player arrivals — last 14 days</div>
+                <div class="bars">
+                  <div class="bar" style="height:28%"></div><div class="bar" style="height:40%"></div>
+                  <div class="bar" style="height:35%"></div><div class="bar" style="height:55%"></div>
+                  <div class="bar" style="height:50%"></div><div class="bar" style="height:68%"></div>
+                  <div class="bar" style="height:62%"></div><div class="bar" style="height:78%"></div>
+                  <div class="bar" style="height:72%"></div><div class="bar" style="height:85%"></div>
+                  <div class="bar" style="height:80%"></div><div class="bar" style="height:90%"></div>
+                  <div class="bar" style="height:94%"></div><div class="bar" style="height:100%"></div>
+                </div>
+              </div>
+              <div class="dash-roi">
+                <div class="dash-roi-title">ROI this month</div>
+                <div class="roi-row-w"><span class="roi-label-w">SaaS spend</span><span class="roi-val-w roi-negative">−€4,999</span></div>
+                <div class="roi-row-w"><span class="roi-label-w">CPA spend (1,284 NDC)</span><span class="roi-val-w roi-negative">−€118K</span></div>
+                <div class="roi-divider"></div>
+                <div class="roi-row-w"><span class="roi-label-w">Revenue attributed</span><span class="roi-val-w roi-positive">+€118K</span></div>
+                <div class="roi-row-w"><span class="roi-label-w">Player LTV (6 mo)</span><span class="roi-val-w roi-positive">+€920K</span></div>
+                <div class="roi-divider"></div>
+                <div class="roi-row-w"><span class="roi-total-label">Net ROI</span><span class="roi-total-val">7.8×</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ops-cta-row">
+          <a href="#cta" class="btn btn-primary">View Demo</a>
+          <a href="#investor-cta" class="btn btn-outline">See the Numbers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ STUDIOS ══ -->
+<section id="studios" class="section">
+  <div class="wrap">
+    <div class="label reveal">For Studios</div>
+    <div style="height:28px"></div>
+    <div class="studios-layout">
+      <div class="reveal">
+        <h2>Your games,<br>seen by players.<br><em class="serif">Not just lobbies.</em></h2>
+        <p class="body-lg" style="margin-top:14px">Studios have zero direct-to-player channel today. PLURALS TECH is the first.</p>
+        <div class="roi-box reveal">
+          <span class="roi-box-label">Why studios need this now</span>
+          <div class="roi-item"><span class="roi-icon">💸</span><span class="roi-text"><strong>Only 2–3% of games become hits.</strong> Studios spend full production budgets on concepts that fail silently inside lobby grids.</span></div>
+          <div class="roi-item"><span class="roi-icon">🧪</span><span class="roi-text"><strong>Test before you build.</strong> Publish teaser content and measure real player engagement before committing to full development.</span></div>
+          <div class="roi-item"><span class="roi-icon">📣</span><span class="roi-text"><strong>Launches are invisible today.</strong> On PLURALS, a launch is a content event — a trailer, a teaser, a streamer session with real player feedback.</span></div>
+          <div class="roi-item"><span class="roi-icon">📊</span><span class="roi-text"><strong>First-ever player engagement data.</strong> Watch time, demo rate, and intent signals before a single deposit — data no studio has ever had.</span></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="studio-tiers">
+          <div class="tier-card">
+            <div class="tier-left">
+              <span class="tier-name">Studio Verified Channel</span>
+              <div class="tier-title">Brand presence + analytics</div>
+              <div class="tier-desc">Verified studio channel, game library, player analytics, launch notification tools.</div>
+            </div>
+            <div class="tier-price-col"><span class="tier-price">€999</span><span class="tier-per">/month</span></div>
+          </div>
+          <div class="tier-card hero-tier">
+            <div class="tier-left">
+              <span class="tier-name">Featured Game Slot</span>
+              <div class="tier-title">Verified channel + featured placement</div>
+              <div class="tier-desc">All above plus priority discovery feed placement and boosted launch reach.</div>
+            </div>
+            <div class="tier-price-col"><span class="tier-price" style="color:var(--teal)">€1,499</span><span class="tier-per">/month</span></div>
+          </div>
+          <div class="tier-card">
+            <div class="tier-left">
+              <span class="tier-name">Game Launch Package</span>
+              <div class="tier-title">Full launch event</div>
+              <div class="tier-desc">Trailer production, demo boost, creator campaign, featured placement, and full analytics suite.</div>
+            </div>
+            <div class="tier-price-col"><span class="tier-price">€2,999</span><span class="tier-per">one-time</span></div>
+          </div>
+        </div>
+
+        <!-- Studio Dashboard -->
+        <div class="studio-dash reveal">
+          <div class="dash-bar">
+            <span class="dot" style="background:#ff5f5f"></span>
+            <span class="dot" style="background:#ffbd2e"></span>
+            <span class="dot" style="background:#27c93f"></span>
+            <span class="dash-bar-title">Studio Dashboard · PLURALS TECH</span>
+          </div>
+          <div class="studio-dash-content">
+            <div class="sdc-card">
+              <div class="sdc-num teal">284K</div>
+              <div class="sdc-label">Game impressions / month</div>
+              <div class="sdc-bar-track"><div class="sdc-bar-fill" style="width:78%"></div></div>
+            </div>
+            <div class="sdc-card">
+              <div class="sdc-num gold">18.4%</div>
+              <div class="sdc-label">Demo engagement rate</div>
+              <div class="sdc-bar-track"><div class="sdc-bar-fill" style="width:55%;background:var(--gold)"></div></div>
+            </div>
+            <div class="sdc-card">
+              <div class="sdc-num">4.1K</div>
+              <div class="sdc-label">New studio followers</div>
+              <div class="sdc-bar-track"><div class="sdc-bar-fill" style="width:42%;background:var(--accent2)"></div></div>
+            </div>
+            <div class="sdc-card">
+              <div class="sdc-num teal">€8.2K</div>
+              <div class="sdc-label">Attributed operator revenue</div>
+              <div class="sdc-bar-track"><div class="sdc-bar-fill" style="width:66%"></div></div>
+            </div>
+            <div class="sdc-card sdc-full">
+              <div style="font-size:9px;color:var(--dim);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Player acquisition funnel</div>
+              <div class="funnel-row"><span class="funnel-label">Impressions</span><div class="funnel-track"><div class="funnel-fill" style="width:100%;background:var(--accent);opacity:.6"></div></div><span class="funnel-val">284K</span></div>
+              <div class="funnel-row"><span class="funnel-label">Demo plays</span><div class="funnel-track"><div class="funnel-fill" style="width:52%;background:var(--teal);opacity:.7"></div></div><span class="funnel-val">52.3K</span></div>
+              <div class="funnel-row"><span class="funnel-label">Click-outs</span><div class="funnel-track"><div class="funnel-fill" style="width:22%;background:var(--gold);opacity:.7"></div></div><span class="funnel-val">6.3K</span></div>
+              <div class="funnel-row"><span class="funnel-label">Deposits</span><div class="funnel-track"><div class="funnel-fill" style="width:8%;background:#f87171;opacity:.7"></div></div><span class="funnel-val">1.1K</span></div>
+            </div>
+            <div class="sdc-card sdc-full">
+              <div style="font-size:9px;color:var(--dim);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Top performing games</div>
+              <div class="sdc-game-row"><div class="sdc-game-thumb">⚡</div><div class="sdc-game-name">Gates of Olympus</div><div class="sdc-game-views">42K views</div></div>
+              <div class="sdc-game-row"><div class="sdc-game-thumb">🐺</div><div class="sdc-game-name">Wolf Gold Megaways</div><div class="sdc-game-views">28K views</div></div>
+              <div class="sdc-game-row"><div class="sdc-game-thumb">🚀</div><div class="sdc-game-name">Reactoonz 2</div><div class="sdc-game-views">19K views</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <a href="#cta" class="btn btn-ghost-teal">Start a Studio Channel →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SCROLLTO.APP SECTION ══ -->
+<section id="entertainment" class="section">
+  <div class="ent-glow"></div>
+  <div class="wrap">
+
+    <div class="ent-header reveal">
+      <!-- scrollto.app logo: scroll=white, to=teal, .app=white -->
+      <div class="scrollto-wm">
+        <svg viewBox="0 0 240 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:52px">
+          <rect x="2" y="16" width="34" height="20" rx="10" stroke="#00d4b1" stroke-width="1.3" fill="rgba(0,212,177,0.08)"/>
+          <line x1="10" y1="26" x2="28" y2="26" stroke="#00d4b1" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M22 18l10 8-10 8" stroke="#00d4b1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="44" y="35" font-family="Syne,sans-serif" font-size="28" font-weight="800" fill="white" letter-spacing="-0.03em">scroll</text>
+          <text x="145" y="35" font-family="Syne,sans-serif" font-size="28" font-weight="800" fill="#00d4b1" letter-spacing="-0.03em">to</text>
+          <text x="168" y="35" font-family="Syne,sans-serif" font-size="28" font-weight="800" fill="white" letter-spacing="-0.03em">.app</text>
+        </svg>
+      </div>
+      <div class="label" style="justify-content:center;margin-bottom:18px">The iGaming Entertainment App</div>
+      <h2>Built for<br><em class="serif">the Scroll Generation.</em></h2>
+      <p class="body-xl" style="margin-top:14px">Your move is to scroll. Every scroll reveals a new game. Every session unlocks a new story. No lobbies. No friction. Just play.</p>
+    </div>
+
+    <!-- SWIPE LEGEND — above phones -->
+    <div class="swipe-legend reveal">
+      <div class="swipe-card"><div class="swipe-emoji">⬆️⬇️</div><div class="swipe-action-title">Scroll</div><div class="swipe-desc-txt">New game teaser — like a slot lever pull</div></div>
+      <div class="swipe-card"><div class="swipe-emoji">👈</div><div class="swipe-action-title">Swipe Left</div><div class="swipe-desc-txt">Watch streamer / AI-streamer play live</div></div>
+      <div class="swipe-card"><div class="swipe-emoji">👉</div><div class="swipe-action-title">Swipe Right</div><div class="swipe-desc-txt">Launch demo play — try the game free</div></div>
+      <div class="swipe-card"><div class="swipe-emoji">💰</div><div class="swipe-action-title">Tap CTA</div><div class="swipe-desc-txt">Redirect to operator — real money play</div></div>
+    </div>
+
+    <!-- 4 PHONES — production-quality from wireframe -->
+    <div class="phones-showcase reveal">
+
+      <!-- PHONE 1: FEED -->
+      <div class="phone-wrap">
+        <div class="screen-title-w">01 — Main Feed</div>
+        <div class="screen-label">Scroll ↕ to discover</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="screen-feed">
+              <div class="feed-card">
+                <div class="feed-bg"></div>
+                <div class="game-visual">
+                  <div style="position:relative">
+                    <div style="position:absolute;inset:-36px;background:radial-gradient(circle,rgba(255,215,0,.07) 0%,transparent 70%);pointer-events:none"></div>
+                    <div class="slot-reels">
+                      <div class="reel"><div class="reel-symbol">💎</div><div class="win-line-f"></div></div>
+                      <div class="reel"><div class="reel-symbol">7️⃣</div></div>
+                      <div class="reel"><div class="reel-symbol">💎</div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feed-particle" style="left:18%;background:#fcd34d;animation-duration:4s;animation-delay:0s"></div>
+                <div class="feed-particle" style="left:42%;background:#a78bfa;animation-duration:5s;animation-delay:1s"></div>
+                <div class="feed-particle" style="left:68%;background:#f9a8d4;animation-duration:3.5s;animation-delay:.5s"></div>
+                <div class="feed-gradient"></div>
+              </div>
+              <div class="feed-topbar">
+                <div class="feed-logo-txt">PLURALS</div>
+                <div class="feed-tabs-w">
+                  <div class="feed-tab-w">Following</div>
+                  <div class="feed-tab-w active">For You</div>
+                  <div class="feed-tab-w">Live</div>
+                </div>
+              </div>
+              <div class="feed-actions-f">
+                <div class="action-btn-f"><div class="action-icon-f">❤️</div><div class="action-count-f">24.2K</div></div>
+                <div class="action-btn-f"><div class="action-icon-f">💬</div><div class="action-count-f">843</div></div>
+                <div class="action-btn-f"><div class="action-icon-f">🔖</div><div class="action-count-f">Save</div></div>
+              </div>
+              <div class="scroll-ind">
+                <div class="scroll-d"></div><div class="scroll-d active"></div>
+                <div class="scroll-d"></div><div class="scroll-d"></div>
+              </div>
+              <div class="feed-info-f">
+                <div class="game-studio-f">
+                  <div class="studio-av-f">PP</div>
+                  <span class="studio-name-f">Pragmatic Play</span>
+                  <span class="studio-follow-f">+ Follow</span>
+                </div>
+                <div class="game-name-f">Gates of Olympus</div>
+                <div class="game-tags-f">
+                  <span class="game-tag-f tag-rtp-f">RTP 96.5%</span>
+                  <span class="game-tag-f tag-vol-f">⚡ High Vol</span>
+                  <span class="game-tag-f tag-hot-f">🔥 Trending</span>
+                </div>
+                <div class="swipe-hint-f">
+                  <div class="hint-f"><span>← Live Stream</span></div>
+                  <div class="hint-f"><span>→ Try Demo</span></div>
+                </div>
+              </div>
+              <div class="feed-nav-w">
+                <div class="nav-item-w active"><div class="nav-icon-w">🏠</div><div class="nav-label-w">Feed</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">🔍</div><div class="nav-label-w">Explore</div></div>
+                <div class="nav-item-w"><div class="nav-center-w">🎰</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">📡</div><div class="nav-label-w">Live</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">👤</div><div class="nav-label-w">Profile</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-wrap-w"><div class="arrow-label-w">Swipe Left</div><div class="arrow-circle">👈</div></div>
+
+      <!-- PHONE 2: STREAMER -->
+      <div class="phone-wrap" style="margin-top:28px">
+        <div class="screen-title-w">02 — Live Streamer</div>
+        <div class="screen-label">Watch & Engage</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="screen-streamer-w">
+              <div class="stream-video-w">
+                <div class="stream-overlay-w"></div>
+                <div class="streamer-game-w">
+                  <div class="mini-slot-w">
+                    <div class="mini-reel-w">💎</div>
+                    <div class="mini-reel-w">💎</div>
+                    <div class="mini-reel-w">💎</div>
+                  </div>
+                </div>
+                <div class="streamer-pip-w">🧑‍💻</div>
+                <div class="live-badge-w"><div class="live-dot-w"></div>LIVE</div>
+                <div class="viewer-count-w">👁 12.4K</div>
+                <div class="stream-win-w">🎉 BigWin! ×247 — Gates of Olympus</div>
+              </div>
+              <div class="stream-chat-w">
+                <div class="stream-info-bar-w">
+                  <div class="streamer-row-w">
+                    <div class="streamer-av-w">🎮</div>
+                    <div style="flex:1"><div class="streamer-handle-w">SlotKing_UA</div><div class="streamer-sub-w">42.1K followers · Slots</div></div>
+                    <div class="follow-btn-w">+ Follow</div>
+                  </div>
+                </div>
+                <div class="chat-msgs-w">
+                  <div class="chat-msg-w"><span class="chat-user-w" style="color:#a78bfa">crypto_mike</span><span class="chat-text-w"> omg that bonus buy 🔥</span></div>
+                  <div class="chat-msg-w"><span class="chat-user-w" style="color:#6ee7b7">lucky_spin99</span><span class="chat-text-w"> this game goes crazy</span></div>
+                  <div class="chat-msg-w"><span class="chat-user-w" style="color:#fcd34d">neon_grinder</span><span class="chat-text-w"> tried the demo it's insane</span></div>
+                  <div class="chat-msg-w"><span class="chat-user-w" style="color:#67e8f9">zeus_fan</span><span class="chat-text-w"> W streamer 🙏 always</span></div>
+                </div>
+                <div class="chat-input-w">
+                  <div class="chat-in-w">Add a comment...</div>
+                  <div class="chat-send-w">➤</div>
+                </div>
+              </div>
+              <div class="feed-nav-w">
+                <div class="nav-item-w"><div class="nav-icon-w">🏠</div><div class="nav-label-w">Feed</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">🔍</div><div class="nav-label-w">Explore</div></div>
+                <div class="nav-item-w"><div class="nav-center-w">🎰</div></div>
+                <div class="nav-item-w active"><div class="nav-icon-w">📡</div><div class="nav-label-w">Live</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">👤</div><div class="nav-label-w">Profile</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-wrap-w"><div class="arrow-label-w">Swipe Right from Feed</div><div class="arrow-circle">👉</div></div>
+
+      <!-- PHONE 3: DEMO PLAY -->
+      <div class="phone-wrap">
+        <div class="screen-title-w">03 — Demo Play</div>
+        <div class="screen-label">Try Free → Go Real</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="screen-demo-w">
+              <div class="demo-header-w">
+                <div class="back-btn-w">←</div>
+                <div class="demo-game-title-w">Gates of Olympus</div>
+                <div class="demo-badge-w">DEMO</div>
+              </div>
+              <div class="demo-game-area-w">
+                <div class="demo-slot-machine-w">
+                  <div class="demo-slot-title-w">Gates of Olympus</div>
+                  <div class="demo-reels-w">
+                    <div class="demo-reel-w">💎</div><div class="demo-reel-w">⚡</div>
+                    <div class="demo-reel-w">💎</div><div class="demo-reel-w">🏺</div>
+                    <div class="demo-reel-w">⚡</div>
+                  </div>
+                  <div class="demo-win-line-w"></div>
+                  <div class="demo-bal-row">
+                    <div class="demo-stat-w"><div class="demo-stat-label-w">Balance</div><div class="demo-stat-val-w" style="color:#fcd34d">€1,000</div></div>
+                    <div class="demo-stat-w"><div class="demo-stat-label-w">Last Win</div><div class="demo-stat-val-w" style="color:#6ee7b7">€0.00</div></div>
+                    <div class="demo-stat-w"><div class="demo-stat-label-w">Mult</div><div class="demo-stat-val-w" style="color:#a78bfa">×15</div></div>
+                  </div>
+                  <div class="demo-spin-btn-w">SPIN ▶</div>
+                </div>
+              </div>
+              <div class="demo-controls-w">
+                <div class="bet-sel-w">
+                  <div class="bet-label-w">BET SIZE</div>
+                  <div class="bet-ctrls-w">
+                    <div class="bet-btn-w">−</div>
+                    <div class="bet-val-w">€0.20</div>
+                    <div class="bet-btn-w">+</div>
+                  </div>
+                </div>
+              </div>
+              <div class="real-money-cta-w">
+                <div class="cta-label-w">Ready to play for real?</div>
+                <div class="cta-btn-w">
+                  <span style="font-size:16px">💰</span>
+                  <span class="cta-text-w">Play at Real Money Casino</span>
+                  <span class="cta-bonus-w">+200%</span>
+                </div>
+                <div class="op-logos-w">
+                  <div class="op-logo-w">Bet365</div>
+                  <div class="op-logo-w">LeoVegas</div>
+                  <div class="op-logo-w">888</div>
+                  <div class="op-logo-w">+12 more</div>
+                </div>
+              </div>
+              <div class="feed-nav-w">
+                <div class="nav-item-w"><div class="nav-icon-w">🏠</div><div class="nav-label-w">Feed</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">🔍</div><div class="nav-label-w">Explore</div></div>
+                <div class="nav-item-w"><div class="nav-center-w">🎰</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">📡</div><div class="nav-label-w">Live</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">👤</div><div class="nav-label-w">Profile</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrow-wrap-w"><div class="arrow-label-w">Tap Profile</div><div class="arrow-circle">👆</div></div>
+
+      <!-- PHONE 4: PROFILE -->
+      <div class="phone-wrap" style="margin-top:48px">
+        <div class="screen-title-w">04 — Player Profile</div>
+        <div class="screen-label">Stats & Favourites</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="screen-profile-w">
+              <div class="profile-header-area-w">
+                <div class="profile-header-pattern-w"></div>
+                <div class="profile-back-w">←</div>
+                <div class="profile-avatar-w">🧑‍🎮</div>
+              </div>
+              <div class="profile-content-w">
+                <div class="profile-name-area-w">
+                  <div class="profile-name-w">Volodymyr_P</div>
+                  <div class="profile-handle-w">@volodymyr · Level 12 🎯</div>
+                  <div class="profile-stats-w">
+                    <div class="p-stat-w"><div class="p-stat-num-w">247</div><div class="p-stat-label-w">Games Tried</div></div>
+                    <div class="p-stat-w"><div class="p-stat-num-w">18</div><div class="p-stat-label-w">Following</div></div>
+                    <div class="p-stat-w"><div class="p-stat-num-w">4.1K</div><div class="p-stat-label-w">Followers</div></div>
+                  </div>
+                </div>
+                <div class="profile-section-w">
+                  <div class="p-section-title-w">Favourite Games</div>
+                  <div class="favorites-grid-w">
+                    <div class="fav-game-w"><div class="fav-emoji-w">⚡</div><div class="fav-name-w">Gates of Olympus</div></div>
+                    <div class="fav-game-w"><div class="fav-emoji-w">🐺</div><div class="fav-name-w">Wolf Gold</div></div>
+                    <div class="fav-game-w"><div class="fav-emoji-w">💣</div><div class="fav-name-w">Reactoonz</div></div>
+                    <div class="fav-game-w"><div class="fav-emoji-w">🍬</div><div class="fav-name-w">Sweet Bonanza</div></div>
+                    <div class="fav-game-w"><div class="fav-emoji-w">🚀</div><div class="fav-name-w">Aviator</div></div>
+                    <div class="fav-game-w" style="border-style:dashed;border-color:rgba(107,94,255,.28)"><div class="fav-emoji-w">＋</div><div class="fav-name-w">Add more</div></div>
+                  </div>
+                </div>
+                <div class="profile-section-w">
+                  <div class="p-section-title-w">Daily Streak 🔥</div>
+                  <div class="streak-row">
+                    <div class="streak-day-w streak-on-w"></div>
+                    <div class="streak-day-w streak-on-w"></div>
+                    <div class="streak-day-w streak-on-w"></div>
+                    <div class="streak-day-w streak-on-w"></div>
+                    <div class="streak-day-w streak-dim-w"></div>
+                    <div class="streak-day-w streak-dim-w"></div>
+                    <div class="streak-day-w streak-dim-w"></div>
+                  </div>
+                  <div class="streak-label-w">4-day streak · Keep it up!</div>
+                </div>
+                <div class="profile-section-w">
+                  <div class="p-section-title-w">Recent Activity</div>
+                  <div class="recent-act-w">
+                    <div class="act-item-w">
+                      <div class="act-icon-w">🎰</div>
+                      <div class="act-info-w"><div class="act-name-w">Tried Sweet Bonanza Demo</div><div class="act-time-w">2 hours ago</div></div>
+                      <div class="act-badge-w" style="background:rgba(6,182,212,.14);color:#67e8f9;border:1px solid rgba(6,182,212,.22)">DEMO</div>
+                    </div>
+                    <div class="act-item-w">
+                      <div class="act-icon-w">📡</div>
+                      <div class="act-info-w"><div class="act-name-w">Watched SlotKing_UA</div><div class="act-time-w">5 hours ago</div></div>
+                      <div class="act-badge-w" style="background:rgba(239,68,68,.14);color:#fca5a5;border:1px solid rgba(239,68,68,.22)">LIVE</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="feed-nav-w">
+                <div class="nav-item-w"><div class="nav-icon-w">🏠</div><div class="nav-label-w">Feed</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">🔍</div><div class="nav-label-w">Explore</div></div>
+                <div class="nav-item-w"><div class="nav-center-w">🎰</div></div>
+                <div class="nav-item-w"><div class="nav-icon-w">📡</div><div class="nav-label-w">Live</div></div>
+                <div class="nav-item-w active"><div class="nav-icon-w">👤</div><div class="nav-label-w">Profile</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /phones-showcase -->
+
+    <!-- Features -->
+    <div class="ent-features reveal">
+      <div class="ent-feat"><div class="ent-feat-icon">🎲</div><div class="ent-feat-title">Algorithmic game discovery</div><div class="ent-feat-desc">A personalised feed trained on iGaming-specific signals. The more you scroll, the smarter it gets about what you'll love.</div></div>
+      <div class="ent-feat"><div class="ent-feat-icon">🎬</div><div class="ent-feat-title">Serialised — come back tomorrow</div><div class="ent-feat-desc">Cliffhanger sessions cut before the multiplier lands. Streamer series. Daily challenges. Engineered for the return habit.</div></div>
+      <div class="ent-feat"><div class="ent-feat-icon">🚀</div><div class="ent-feat-title">Discovery to play in 5 seconds</div><div class="ent-feat-desc">Watch a clip → swipe right → demo loads. No account, no deposit, no friction. Every player is ready before they commit.</div></div>
+    </div>
+
+    <div class="app-btns reveal">
+      <a href="#" class="btn btn-teal">scrollto.app</a>
+      <!-- Apple App Store SVG icon -->
+      <a href="#" class="btn btn-outline" style="gap:10px">
+        <svg width="18" height="18" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-41.4-150.3-115.2c-48.1-79.2-87.4-203.9-87.4-322.8 0-195.3 127.4-298.5 252.7-298.5 66.1 0 121.2 43.4 162.7 43.4 39.5 0 101.1-46 176.3-46 28.5 0 130.9 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"/></svg>
+        App Store
+      </a>
+      <a href="#" class="btn btn-outline" style="gap:10px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.4.22.87.23 1.29.01l12.25-7.06-3.07-3.07-10.47 10.12zm-1.61-19.8A2.01 2.01 0 001.5 5.5v13c0 .64.28 1.22.72 1.62l.09.08 7.28-7.28v-.18L1.57 3.96zm18.62 8.96l-2.6-1.5-3.39 3.39 3.39 3.38 2.63-1.52a2 2 0 000-3.75zM4.47.24L16.72 7.3l-3.07 3.07L3.18.24A1.5 1.5 0 014.47.24z"/></svg>
+        Google Play
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ TECHNOLOGY ══ -->
+<section id="technology" class="section" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="label reveal">Technology</div>
+    <div style="height:28px"></div>
+    <div style="max-width:580px" class="reveal">
+      <h2>Smart enough to know<br>what you'll play next.</h2>
+      <p class="body-lg" style="margin-top:14px">Four technology pillars make PLURALS TECH more valuable for every player, operator, and studio — every single day.</p>
+    </div>
+    <div class="tech-grid reveal">
+      <div class="tech-card tech-card-main">
+        <div class="tech-n">01 / INTELLIGENCE</div>
+        <h4>AI Recommendation Engine</h4>
+        <p>The feed learns from every interaction — watch duration, demo engagement, swipe direction, and real-money conversion signals. Unlike generic content algorithms, this one is trained exclusively on iGaming-specific behaviour. It knows the difference between someone who watches for entertainment and someone who's ready to deposit. That distinction is worth billions to operators.</p>
+        <div class="tech-pills">
+          <span class="tech-pill tp-a">For You Page logic</span>
+          <span class="tech-pill tp-t">Deposit-intent signals</span>
+          <span class="tech-pill tp-g">Game-fit scoring</span>
+        </div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-n">02 / CONTENT</div>
+        <h4>AI Streamers</h4>
+        <p>24/7 game coverage with zero creator dependency. Always-on social proof at near-zero marginal cost.</p>
+        <span class="tech-pill tp-t" style="margin-top:14px;display:inline-block">Always-on</span>
+      </div>
+      <div class="tech-card">
+        <div class="tech-n">03 / DELIVERY</div>
+        <h4>Video CDN</h4>
+        <p>Mobile-optimised delivery. Sub-second demo load times. Built for millions of concurrent sessions globally.</p>
+        <span class="tech-pill tp-g" style="margin-top:14px;display:inline-block">Edge-first</span>
+      </div>
+      <div class="tech-card" style="grid-column:span 2">
+        <div class="tech-n">04 / DATA MOAT</div>
+        <h4>First-Party iGaming Intelligence</h4>
+        <p>Every interaction generates data no operator, studio, or affiliate has ever had: player-level engagement with specific games, before any deposit, at scale. This data moat deepens every day. It cannot be bought — only built over time.</p>
+        <div class="tech-pills">
+          <span class="tech-pill tp-a">Pre-deposit intent</span>
+          <span class="tech-pill tp-t">Game performance</span>
+          <span class="tech-pill tp-g">Operator attribution</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TRACTION ══ -->
+<section id="traction" class="section">
+  <div class="wrap">
+    <div class="label reveal">Market Context</div>
+    <div style="height:28px"></div>
+    <div class="traction-layout reveal">
+      <div>
+        <h2>The market is ready.<br><em class="serif">The window is now.</em></h2>
+        <p class="body-lg" style="margin-top:14px;margin-bottom:36px">iGaming is the last major entertainment vertical not yet transformed by algorithmic, social, short-form content.</p>
+        <div class="traction-stats">
+          <div class="tstat feat"><span class="tstat-num">$117B</span><span class="tstat-label">Global iGaming market 2025 · 12.3% CAGR through 2029</span></div>
+          <div class="tstat"><span class="tstat-num">47%</span><span class="tstat-label">Gen Z gambling growth since 2022 — fastest growing segment</span></div>
+          <div class="tstat"><span class="tstat-num">$1,400</span><span class="tstat-label">Max CAC per FTD in mature markets — the crisis operators must solve</span></div>
+          <div class="tstat feat"><span class="tstat-num">0</span><span class="tstat-label">Platforms combining feed + demo play + live streaming in iGaming today</span></div>
+        </div>
+      </div>
+      <div class="market-points">
+        <div class="mp-item"><span class="mp-icon">🎰</span><div class="mp-body"><strong>Casino lobbies haven't changed since 2005</strong><span>Every other entertainment vertical has been transformed by algorithmic discovery and short-form video. iGaming is the last one — and the most lucrative when it moves.</span></div></div>
+        <div class="mp-item"><span class="mp-icon">💬</span><div class="mp-body"><strong>"Everyone is chasing traffic. Communication is repetitive."</strong><span>— Game provider CEO, March 2026. The industry knows it has a content and distribution problem. It hasn't found the solution yet.</span></div></div>
+        <div class="mp-item"><span class="mp-icon">📵</span><div class="mp-body"><strong>Gambling ads are increasingly blocked and regulated</strong><span>Traditional channels are narrowing. Operators need new, compliant, high-performing acquisition. PLURALS is content — not advertising.</span></div></div>
+        <div class="mp-item" style="border-bottom:none"><span class="mp-icon">⚡</span><div class="mp-body"><strong>38% of operators already rate creator content as top acquisition</strong><span>The audience exists. The pain exists. PLURALS TECH is the platform that connects all three sides.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FINAL CTA ══ -->
+<section id="cta" class="section" style="background:var(--bg2);position:relative;overflow:hidden">
+  <div class="cta-glow"></div>
+  <div class="wrap">
+    <div class="cta-header reveal">
+      <div class="label" style="justify-content:center;margin-bottom:20px">Get involved</div>
+      <h2>Build the future of<br>iGaming entertainment.</h2>
+      <p>Choose your path — whether you're an operator, a game studio, or an investor looking for the defining infrastructure play in iGaming.</p>
+    </div>
+
+    <div class="cta-grid reveal">
+      <!-- Operators -->
+      <div class="cta-card">
+        <span class="cta-card-label accent-col">For Operators</span>
+        <h3>Acquire better players.</h3>
+        <p>Lower CAC. Higher intent. Pre-warmed by content. Start with CPA from day one, or commit to Operator Growth for full-stack distribution.</p>
+        <div class="cta-card-points">
+          <span class="cta-card-point">CPA performance — zero upfront risk</span>
+          <span class="cta-card-point">Operator Growth SaaS from €4,999/month</span>
+          <span class="cta-card-point">Gen Z acquisition channel nobody else has</span>
+        </div>
+        <a href="mailto:operators@plurals.tech" class="btn btn-primary" style="width:100%;justify-content:center">Become an operator partner</a>
+      </div>
+
+      <!-- Studios -->
+      <div class="cta-card">
+        <span class="cta-card-label teal-col">For Game Studios</span>
+        <h3>Make your games visible.</h3>
+        <p>The first direct-to-player channel in iGaming history. Test concepts before you build. Turn launches into events. Build a brand players follow.</p>
+        <div class="cta-card-points">
+          <span class="cta-card-point">Verified studio channel from €999/month</span>
+          <span class="cta-card-point">Game launch campaigns from €2,999</span>
+          <span class="cta-card-point">First-ever player-level engagement data</span>
+        </div>
+        <a href="mailto:studios@plurals.tech" class="btn btn-ghost-teal" style="width:100%;justify-content:center">Start a studio channel</a>
+      </div>
+
+      <!-- Investors -->
+      <div class="cta-card investor-card" id="investor-cta">
+        <span class="cta-card-label gold-col">For Investors</span>
+        <h3>The infrastructure play.</h3>
+        <p>PLURALS TECH sits at the intersection of a $117B market and the proven short-form video model. First-mover in iGaming content distribution.</p>
+        <div class="tam-row">
+          <div class="tam-item"><div class="tam-label">TAM</div><div class="tam-val">$117B</div><div class="tam-desc">Global iGaming</div></div>
+          <div class="tam-item"><div class="tam-label">SAM</div><div class="tam-val">$14B</div><div class="tam-desc">Online casino EU+CA</div></div>
+          <div class="tam-item"><div class="tam-label">SOM Y3</div><div class="tam-val">$42M</div><div class="tam-desc">Revenue target</div></div>
+        </div>
+        <div class="cta-card-points" style="margin-bottom:16px">
+          <span class="cta-card-point">B2B2C platform: SaaS + affiliate + creator economy</span>
+          <span class="cta-card-point">First-party iGaming data moat — compounds daily</span>
+          <span class="cta-card-point">Adjacent winner: Holywater raised $22M at ~$225M val</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="mailto:invest@plurals.tech" class="btn btn-investor" style="width:100%;justify-content:center">Get pitch deck</a>
+          <a href="mailto:invest@plurals.tech?subject=Unit Economics" class="btn btn-outline btn-sm" style="width:100%;justify-content:center">Request unit economics</a>
+        </div>
+        <div class="investor-contact">Reaching out as an investor? <a href="mailto:invest@plurals.tech">invest@plurals.tech</a></div>
+      </div>
+    </div>
+
+    <!-- Closing statement -->
+    <div class="closing-statement reveal">
+      <h3>The scroll generation is here.<br><em class="serif">iGaming hasn't caught up. Yet.</em></h3>
+      <p style="margin-top:12px">Every generation adopts the entertainment format built for them — text, photo, video, and now interactive feeds. The players who grew up scrolling are the fastest-growing gambling demographic on the planet. PLURALS TECH is the platform being built for this moment — and this is only the beginning.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <a href="#hero" class="nav-logo" style="text-decoration:none">
+        <svg width="26" height="26" viewBox="0 0 34 34" fill="none">
+          <circle cx="17" cy="12.5" r="9.5" stroke="rgba(255,255,255,0.38)" stroke-width="1.2" fill="none"/>
+          <circle cx="11.5" cy="22.5" r="9.5" stroke="rgba(255,255,255,0.38)" stroke-width="1.2" fill="none"/>
+          <circle cx="22.5" cy="22.5" r="9.5" stroke="rgba(255,255,255,0.38)" stroke-width="1.2" fill="none"/>
+        </svg>
+        <span class="nav-logo-type" style="font-size:11px;color:var(--dim)">PLURALS TECH</span>
+      </a>
+      <ul class="footer-nav">
+        <li><a href="#problem">Market Problem</a></li>
+        <li><a href="#solution">Solution</a></li>
+        <li><a href="#operators">For Operators</a></li>
+        <li><a href="#studios">For Studios</a></li>
+        <li><a href="#entertainment">scrollto.app</a></li>
+        <li><a href="mailto:hello@plurals.tech">Contact</a></li>
+      </ul>
+      <!-- Social icons -->
+      <div class="footer-socials">
+        <!-- LinkedIn -->
+        <a href="#" class="social-link" title="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <!-- YouTube -->
+        <a href="#" class="social-link" title="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="social-link" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy">© 2026 PLURALS TECH · plurals.tech</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.07,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay=`${(i%5)*.055}s`;
+  obs.observe(el);
+});
+// Nav compact
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY>60;
+  nav.style.padding=s?'12px 48px':'18px 48px';
+  nav.style.background=s?'rgba(6,6,15,0.98)':'rgba(6,6,15,0.90)';
+},{passive:true});
+</script>
+</body>
+</html>
