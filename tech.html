@@ -6,7 +6,8 @@
 <title>PLURALS TECH — iGaming Entertainment Reshaped</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet">
+   <style>
 /* ════════════════════════════════════
    TOKENS
 ════════════════════════════════════ */
@@ -258,8 +259,48 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .ent-header{text-align:center;max-width:700px;margin:0 auto 56px}
 
 /* scrollto.app wordmark */
-.scrollto-wm{display:inline-flex;align-items:center;gap:0;margin-bottom:28px}
-.scrollto-wm svg{height:48px}
+/* .scrollto-wm{display:inline-flex;align-items:center;gap:0;margin-bottom:28px}
+.scrollto-wm svg{height:48px}  */
+   .scrollto-wm {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.logo-icon {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.green {
+  color: #00d4b1;
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: #8a8fa3; /* під стиль як на скріні */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
 /* === PHONE FRAMES (from wireframe) === */
 .phones-showcase{display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:nowrap;overflow-x:auto;padding:0 0 16px;margin-bottom:48px}
@@ -577,13 +618,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
         PLURALS TECH connects operators, game studios, and the next generation of players — through short-form video, live streaming, and AI-powered discovery.
       </p>
 
-      <div class="hero-btns">
-        <a href="#solution" class="btn btn-primary">
-          See how it works
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="#cta" class="btn btn-outline">Become a partner</a>
-      </div>
+<div class="hero-btns">
+  <a href="#solution" class="btn btn-primary">
+    See how it works
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+      <path d="M3 8h10M9 4l4 4-4 4"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
 
       <!-- VENN -->
       <div class="hero-venn reveal" style="margin-bottom:64px">
@@ -621,7 +667,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
           <div class="hs-sub">Doubled since 2022 · Blask iGaming 2025</div>
         </div>
         <div class="hs-cell">
-          <span class="hs-num">~98%</span>
+          <span class="hs-num">98%</span>
           <div class="hs-label">of game releases go unnoticed — no studio-to-player channel exists</div>
           <div class="hs-sub">Game provider CEO, March 2026</div>
         </div>
@@ -648,7 +694,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
     <div class="problem-grid reveal">
       <div class="prob-card prob-ops">
         <div class="prob-who prob-who-ops">Operators</div>
-        <span class="prob-stat">$280–<span class="unit">$1,400</span></span>
+        <span class="prob-stat">$280–$1,400<span class="unit"></span></span>
         <h4>Cost per new depositor</h4>
         <p>CAC has doubled since 2022 in mature markets. Google, Meta, and affiliate channels are saturated. Gen Z — gambling's fastest-growing cohort — doesn't respond to any of them.</p>
       </div>
@@ -660,7 +706,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
       </div>
       <div class="prob-card prob-pla">
         <div class="prob-who prob-who-pla">Players</div>
-        <span class="prob-stat">4,000<span class="unit">+ games</span></span>
+        <span class="prob-stat">30,000<span class="unit">+ games</span></span>
         <h4>Zero emotional context. Zero discovery.</h4>
         <p>Casino lobbies haven't changed in 20 years. No algorithm, no social proof, no way to know if a game is worth your money before you deposit. The scroll generation finds everything through feeds — except iGaming.</p>
       </div>
@@ -821,8 +867,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
         </div>
 
         <div class="ops-cta-row">
-          <a href="#cta" class="btn btn-primary">View Demo</a>
-          <a href="#investor-cta" class="btn btn-outline">See the Numbers</a>
+          <a href="https://plurals-tech.github.io/for-operators/plurals-operators.html" class="btn btn-primary">See the Numbers</a>
+         <!-- Это комментарий <a href="#investor-cta" class="btn btn-outline">See the Numbers</a> --> 
         </div>
       </div>
     </div>
@@ -922,7 +968,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
         </div>
 
         <div style="margin-top:20px">
-          <a href="#cta" class="btn btn-ghost-teal">Start a Studio Channel →</a>
+          <a href="https://plurals-tech.github.io/for-studios/plurals-studios.html" class="btn btn-ghost-teal">Get Insights →</a>
         </div>
       </div>
     </div>
@@ -937,6 +983,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
 
     <div class="ent-header reveal">
       <!-- scrollto.app logo: scroll=white, to=teal, .app=white -->
+        <!-- 
       <div class="scrollto-wm">
         <svg viewBox="0 0 240 52" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:52px">
           <rect x="2" y="16" width="34" height="20" rx="10" stroke="#00d4b1" stroke-width="1.3" fill="rgba(0,212,177,0.08)"/>
@@ -947,6 +994,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
           <text x="168" y="35" font-family="Syne,sans-serif" font-size="28" font-weight="800" fill="white" letter-spacing="-0.03em">.app</text>
         </svg>
       </div>
+-->
+<div class="scrollto-wm">
+  <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="10" width="34" height="20" rx="10" stroke="#00d4b1" stroke-width="1.3" fill="rgba(0,212,177,0.08)"/>
+    <line x1="10" y1="20" x2="26" y2="20" stroke="#00d4b1" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M20 14l8 6-8 6" stroke="#00d4b1" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+
+  <div class="logo-text">
+    <span class="white">scroll</span>
+    <span class="green">to</span>
+    <span class="white">.app</span>
+  </div>
+</div>
+       
       <div class="label" style="justify-content:center;margin-bottom:18px">The iGaming Entertainment App</div>
       <h2>Built for<br><em class="serif">the Scroll Generation.</em></h2>
       <p class="body-xl" style="margin-top:14px">Your move is to scroll. Every scroll reveals a new game. Every session unlocks a new story. No lobbies. No friction. Just play.</p>
@@ -1240,8 +1302,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
     </div>
 
     <div class="app-btns reveal">
-       <a href="https://manager-volodya.github.io/pet-project/App_Wireframe.html" class="btn btn-teal" target="_blank">
-  scrollto.app
+       <a href="https://plurals-tech.github.io/scrollto-app/scrollto-app.html" class="btn btn-teal" target="_blank">
+  View Demo
 </a>
       <!-- Apple App Store SVG icon -->
       <a href="#" class="btn btn-outline" style="gap:10px">
@@ -1338,7 +1400,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
   <div class="wrap">
     <div class="cta-header reveal">
       <div class="label" style="justify-content:center;margin-bottom:20px">Get involved</div>
-      <h2>Build the future of<br>iGaming entertainment.</h2>
+      <h2>Build the future of<br>iGaming entertainment together.</h2>
       <p>Choose your path — whether you're an operator, a game studio, or an investor looking for the defining infrastructure play in iGaming.</p>
     </div>
 
@@ -1395,7 +1457,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 0}
     <!-- Closing statement -->
     <div class="closing-statement reveal">
       <h3>The scroll generation is here.<br><em class="serif">iGaming hasn't caught up. Yet.</em></h3>
-      <p style="margin-top:12px">Every generation adopts the entertainment format built for them — text, photo, video, and now interactive feeds. The players who grew up scrolling are the fastest-growing gambling demographic on the planet. PLURALS TECH is the platform being built for this moment — and this is only the beginning.</p>
+      <p style="margin-top:12px">Every generation adopts the entertainment format built for them — text, photo, video, and now interactive feeds. The players who grew up scrolling are the fastest-growing demographic on the planet. PLURALS TECH is the platform being built for this moment — and this is only the beginning.</p>
     </div>
 
   </div>
